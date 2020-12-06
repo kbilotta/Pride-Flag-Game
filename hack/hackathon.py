@@ -1,5 +1,7 @@
 """A game about LGBTQ+ history. :)"""
-#python -m hack.hackathon
+
+
+__authors__ = "Kai, Dru, and Savannah"
 
 
 from turtle import Turtle, bgcolor, update, done, onkey, listen, tracer, clearscreen, resetscreen, shape, showturtle, addshape, Screen
@@ -8,6 +10,7 @@ import random
 import turtle
 import os
 print(os.getcwd())
+
 
 t1: Turtle = Turtle()
 t2: Turtle = Turtle()
@@ -39,20 +42,22 @@ sbox: Turtle = Turtle()
 bi: Turtle = Turtle()
 nb: Turtle = Turtle()
 trans: Turtle = Turtle()
+lesbian: Turtle = Turtle()
+rainbow: Turtle = Turtle()
 test: Turtle = Turtle()
 end: Turtle = Turtle()
 ebox: Turtle = Turtle()
 
 
 def main() -> None:
-    """This bad boy can fit a whole lot of code B) (entrypoint to program)"""
-    score = 0
+    """Entrypoint to game."""
+    score: int = 0
     tracer(0,0)
     bgcolor("mistyrose")
     start_screen()
     q_function_list = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20]
     #put all question functions in this list so that I can randomly access them
-    answer_key = {
+    answer_key: Dict[int, str] = {
         1 : "a",
         2 : "b",
         3 : "b",
@@ -76,11 +81,35 @@ def main() -> None:
 
         
     }
+
+    explanation_key: Dict[int, str] = {
+        1 : "This is the trans flag.",
+        2 : "This is the nonbinary flag.",
+        3 : "About 33 percent of LGBTQ+ people identify as having at least one disability",
+        4 : "The colors of the original pride flag were hot pink, red, orange, yellow, green, turquoise, indigo, and violet which stand for sex, life, healing, sunlight, nature, magic/art, serenity, and spirit respectively.",
+        5 : "Kimberle Williams Crenshaw: American lawyer, civil rights activist, and philosopher.",
+        6 : "The answer is Republic of Congo and Uganda.",
+        7 : "Purple represents people who identify as a blend of male and female.",
+        8 : "Sage is an NYC-Based non-profit that's making waves!",
+        9 : "The magenta stripe represents attraction toward people of the same gender while blue represents attraction toward other genders and purple represents both.",
+        10 : "That would be Tel Aviv, Berlin, and NYC!",
+        11 : "White represents connection to womanhood. The colors above it represent gender non-conformity, independence, and community while the colors below represent serenity and peace, love and sex, and femininity.",
+        12 : "That's Ariana Grande!",
+        13 : "(But it should definitely be all of them)",
+        14 : "(We know you’ve all seen it ;-) )",
+        15 : "It's OkCupid of course!",
+        16 : "Roxanne Gay, an American writer, professor, editor, and social commentator.",
+        17 : "That's Ritchie Torres, representative of NYC!",
+        18 : "Mauree Turner, representative of Oklahoma!",
+        19 : "Yellow signifies something outside the binary, completely separate from cisgender norms.",
+        20 : "1973"
+    }
+
     q_num = 1
     _continue = False
     while _continue == False:
         desire = input("Are you ready to start? ")
-        if desire == 'yes' or desire == "Yes":
+        if desire.lower() == "yes":
             _continue = True
     _continue= False
     clearscreen()
@@ -89,20 +118,26 @@ def main() -> None:
         q()
         bgcolor("mistyrose")
         answer = input("What is the answer to the question on screen? ")
-        if answer == answer_key[q_num]:
+        if answer.lower() == answer_key[q_num]:
             print('Correct!')
             select_answer()
+            for item in explanation_key:
+                if q_num == item:
+                    print(explanation_key[item])
             score += 1
             q_num += 1
         else:
             print('Incorrect')
             select_incorrect()
+            for item in explanation_key:
+                if q_num == item:
+                    print(explanation_key[item])
             q_num += 1
         while _continue == False:
             desire = input("Do you want to continue? ")
-            if desire == 'yes' or desire == 'Yes':
+            if desire.lower() == "yes":
                 _continue = True
-            elif desire == 'no' or desire == 'No':
+            elif desire.lower() == "no":
                     clearscreen()
                     print(f"Your score is: {score}")
                     end_screen()
@@ -221,7 +256,7 @@ def q3() -> None:
     screen = turtle.Screen()
     screen.addshape("hack/Q_3.gif")
     turt.shape("hack/Q_3.gif")
-    turt.setposition(30, 0)
+    turt.setposition(0, 0)
     turt.penup()
     
 
@@ -650,11 +685,11 @@ def q18() -> None:
     t18.penup()
     t18.setposition(0, -190)
     t18.pendown()
-    t18.write("a - Scott Tipton - Colorado    b - Mauree Turner - Oklahoma", move=False, align="center", font=("Century Gothic", 17, "bold"))
+    t18.write("a - Scott Tipton - Colorado    b - Mauree Turner - Oklahoma", move=False, align="center", font=("Century Gothic", 15, "bold"))
     t18.penup()
     t18.setposition(0, -230)
     t18.pendown()
-    t18.write("c - Lauren Underwood - Illinois", move=False, align="center", font=("Century Gothic", 17, "bold"))
+    t18.write("c - Lauren Underwood - Illinois", move=False, align="center", font=("Century Gothic", 15, "bold"))
     t18.penup()
     t18.showturtle()
     t18.setposition(0,-10)
@@ -952,7 +987,7 @@ def start_screen() -> None:
     start.penup()
     start.setposition(0, 0)
     start.pendown()
-    start.write("Answer questions in the terminal", move=False, align="center", font=("Century Gothic", 15, "bold"))
+    start.write("Enter 'a,' 'b,' or 'c' to answer questions in the terminal", move=False, align="center", font=("Century Gothic", 15, "bold"))
     start.penup()
     start.setposition(0, -30)
     start.pendown()
@@ -1039,10 +1074,8 @@ def end_screen() -> None:
     neutral_duck_sprite(150,-140, 1)
     neutral_duck_sprite(250,-140, 1)
     #this part is to keep it up and also quit the program
-    #think this should work, so that end screen doesn't disappear but 
-    #it's also clear what happened if the person entered no
-    game_end = input("Welcome to the end of the game! Click q to end the program ")
-    if game_end == "q":
+    game_end = input("Welcome to the end of the game! Enter 'q' to end the program ")
+    if game_end.lower() == "q":
         quit()
     
 
@@ -1233,6 +1266,175 @@ def trans_flag() -> None:
     trans.forward(400)
     trans.end_fill()
     trans.penup()
+
+def lesbian_flag() -> None:
+    lesbian.setposition(-200,130)
+    lesbian.hideturtle()
+    lesbian.pencolor("firebrick")
+    lesbian.fillcolor("firebrick")
+    lesbian.begin_fill()
+    lesbian.pendown()
+    lesbian.forward(400)
+    lesbian.right(90)
+    lesbian.forward(50)
+    lesbian.right(90)
+    lesbian.forward(400)
+    lesbian.right(90)
+    lesbian.forward(50)
+    lesbian.end_fill()
+    lesbian.penup()
+    lesbian.right(180)
+    lesbian.forward(50)
+    lesbian.pencolor("tomato")
+    lesbian.fillcolor("tomato")
+    lesbian.begin_fill()
+    lesbian.pendown()
+    lesbian.forward(50)
+    lesbian.left(90)
+    lesbian.forward(400)
+    lesbian.left(90)
+    lesbian.forward(50)
+    lesbian.left(90)
+    lesbian.forward(400)
+    lesbian.end_fill()
+    lesbian.penup()
+    lesbian.left(90)
+    lesbian.forward(50)
+    lesbian.pencolor("snow")
+    lesbian.fillcolor("snow")
+    lesbian.begin_fill()
+    lesbian.pendown()
+    lesbian.forward(50)
+    lesbian.left(90)
+    lesbian.forward(400)
+    lesbian.left(90)
+    lesbian.forward(50)
+    lesbian.left(90)
+    lesbian.forward(400)
+    lesbian.end_fill()
+    lesbian.penup()
+    lesbian.left(90)
+    lesbian.forward(50)
+    lesbian.pencolor("palevioletred")
+    lesbian.fillcolor("palevioletred")
+    lesbian.begin_fill()
+    lesbian.pendown()
+    lesbian.forward(50)
+    lesbian.left(90)
+    lesbian.forward(400)
+    lesbian.left(90)
+    lesbian.forward(50)
+    lesbian.left(90)
+    lesbian.forward(400)
+    lesbian.end_fill()
+    lesbian.penup()
+    lesbian.left(90)
+    lesbian.forward(50)
+    lesbian.pencolor("mediumvioletred")
+    lesbian.fillcolor("mediumvioletred")
+    lesbian.begin_fill()
+    lesbian.pendown()
+    lesbian.forward(50)
+    lesbian.left(90)
+    lesbian.forward(400)
+    lesbian.left(90)
+    lesbian.forward(50)
+    lesbian.left(90)
+    lesbian.forward(400)
+    lesbian.end_fill()
+    lesbian.penup()
+
+def rainbow_flag() -> None:
+    rainbow.setposition(-200,130)
+    rainbow.hideturtle()
+    rainbow.pencolor("red")
+    rainbow.fillcolor("red")
+    rainbow.begin_fill()
+    rainbow.pendown()
+    rainbow.forward(400)
+    rainbow.right(90)
+    rainbow.forward(42)
+    rainbow.right(90)
+    rainbow.forward(400)
+    rainbow.right(90)
+    rainbow.forward(42)
+    rainbow.end_fill()
+    rainbow.penup()
+    rainbow.right(180)
+    rainbow.forward(42)
+    rainbow.pencolor("darkorange")
+    rainbow.fillcolor("darkorange")
+    rainbow.begin_fill()
+    rainbow.pendown()
+    rainbow.forward(400)
+    rainbow.right(90)
+    rainbow.forward(42)
+    rainbow.right(90)
+    rainbow.forward(400)
+    rainbow.right(90)
+    rainbow.forward(42)
+    rainbow.end_fill()
+    rainbow.penup()
+    rainbow.right(180)
+    rainbow.forward(42)
+    rainbow.pencolor("yellow")
+    rainbow.fillcolor("yellow")
+    rainbow.begin_fill()
+    rainbow.pendown()
+    rainbow.forward(42)
+    rainbow.left(90)
+    rainbow.forward(400)
+    rainbow.left(90)
+    rainbow.forward(42)
+    rainbow.left(90)
+    rainbow.forward(400)
+    rainbow.end_fill()
+    rainbow.penup()
+    rainbow.left(90)
+    rainbow.forward(42)
+    rainbow.pencolor("green")
+    rainbow.fillcolor("green")
+    rainbow.begin_fill()
+    rainbow.pendown()
+    rainbow.forward(42)
+    rainbow.left(90)
+    rainbow.forward(400)
+    rainbow.left(90)
+    rainbow.forward(42)
+    rainbow.left(90)
+    rainbow.forward(400)
+    rainbow.end_fill()
+    rainbow.penup()
+    rainbow.left(90)
+    rainbow.forward(42)
+    rainbow.pencolor("blue")
+    rainbow.fillcolor("blue")
+    rainbow.begin_fill()
+    rainbow.pendown()
+    rainbow.forward(42)
+    rainbow.left(90)
+    rainbow.forward(400)
+    rainbow.left(90)
+    rainbow.forward(42)
+    rainbow.left(90)
+    rainbow.forward(400)
+    rainbow.end_fill()
+    rainbow.penup()
+    rainbow.left(90)
+    rainbow.forward(42)
+    rainbow.pencolor("purple")
+    rainbow.fillcolor("purple")
+    rainbow.begin_fill()
+    rainbow.pendown()
+    rainbow.forward(42)
+    rainbow.left(90)
+    rainbow.forward(400)
+    rainbow.left(90)
+    rainbow.forward(42)
+    rainbow.left(90)
+    rainbow.forward(400)
+    rainbow.end_fill()
+    rainbow.penup()
 
 if __name__ == "__main__":
     main()
