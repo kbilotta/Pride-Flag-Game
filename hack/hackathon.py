@@ -8,8 +8,6 @@ from turtle import Turtle, bgcolor, update, done, onkey, listen, tracer, clearsc
 from typing import Dict, List
 import random
 import turtle
-import os
-print(os.getcwd())
 
 
 t1: Turtle = Turtle()
@@ -56,7 +54,6 @@ def main() -> None:
     bgcolor("mistyrose")
     start_screen()
     q_function_list = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20]
-    #put all question functions in this list so that I can randomly access them
     answer_key: Dict[int, str] = {
         1 : "a",
         2 : "b",
@@ -77,9 +74,7 @@ def main() -> None:
         17 : "a",
         18 : "b",
         19 : "b",
-        20 : "c",
-
-        
+        20 : "c", 
     }
 
     explanation_key: Dict[int, str] = {
@@ -102,8 +97,32 @@ def main() -> None:
         17 : "That's Ritchie Torres, representative of NYC!",
         18 : "Mauree Turner, representative of Oklahoma!",
         19 : "Yellow signifies something outside the binary, completely separate from cisgender norms.",
-        20 : "1973"
+        20 : "This happened in 1973!"
     }
+
+
+    correct_duck_puns: Dict[int, str] = {
+        1 : "Quacktastic! You clearly know your stuff.",
+        2 : "Looks like you've got all your ducks in a row B)",
+        3 : "Ducking awesome!",
+        4 : "That's what I'm quackin about!",
+        5 : "You're the duck's pajamas!",
+        6 : "You're duckstoppable! Or unduckable? Well, you get the point.",
+        7 : "Waddle we do without your smarts? Great job!",
+        8 : "Fan-quacking-tastic, you did it again!"
+    }
+    
+
+    incorrect_duck_puns: Dict[int, str] = {
+        1 : "Better duck next time :(",
+        2 : "Aw, duck",
+        3 : "Keep on duckin, you'll get the next one",
+        4 : "We'll pretend we didn't see that",
+        5 : "Looks like all your ducks aren’t in a row. :-(",
+        6 : "Party-fowl… maybe you could try again?",
+        7 : "Oops, this answer didn’t fit the bill. :-/"
+    }
+
 
     q_num = 1
     _continue = False
@@ -119,7 +138,7 @@ def main() -> None:
         bgcolor("mistyrose")
         answer = input("What is the answer to the question on screen? ")
         if answer.lower() == answer_key[q_num]:
-            print('Correct!')
+            print(correct_duck_puns[random.randint(1, 8)])
             select_answer()
             for item in explanation_key:
                 if q_num == item:
@@ -127,7 +146,7 @@ def main() -> None:
             score += 1
             q_num += 1
         else:
-            print('Incorrect')
+            print(incorrect_duck_puns[random.randint(1, 7)])
             select_incorrect()
             for item in explanation_key:
                 if q_num == item:
@@ -279,6 +298,7 @@ def q4() -> None:
     t4.pendown()
     t4.write("a - Serenity     b - Spirit     c - Healing", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t4.penup()
+    rainbow_flag()
 
 def q5() -> None:
     """Who coined -> intersectionality."""
@@ -489,6 +509,7 @@ def q11() -> None:
     t11.pendown()
     t11.write("c - Connection To Womanhood", move=False, align="center", font=("Century Gothic", 14, "bold"))
     t11.penup()
+    lesbian_flag()
     
 
 def q12() -> None:
@@ -1365,6 +1386,7 @@ def rainbow_flag() -> None:
     rainbow.pencolor("darkorange")
     rainbow.fillcolor("darkorange")
     rainbow.begin_fill()
+    rainbow.left(90)
     rainbow.pendown()
     rainbow.forward(400)
     rainbow.right(90)
