@@ -88,7 +88,7 @@ def main() -> None:
         8 : "Sage is an NYC-Based non-profit that's making waves!",
         9 : "The magenta stripe represents attraction toward people of the same gender while blue represents attraction toward other genders and purple represents both.",
         10 : "That would be Tel Aviv, Berlin, and NYC!",
-        11 : "White represents connection to womanhood. The colors above it represent gender non-conformity, independence, and community while the colors below represent serenity and peace, love and sex, and femininity.",
+        11 : "White represents connection to womanhood. The colors above it in the 7-stripe flag represent gender non-conformity, independence, and community while the colors below represent serenity and peace, love and sex, and femininity.",
         12 : "That's Ariana Grande!",
         13 : "(But it should definitely be all of them)",
         14 : "(We know you’ve all seen it ;-) )",
@@ -100,7 +100,6 @@ def main() -> None:
         20 : "This happened in 1973!"
     }
 
-
     correct_duck_puns: Dict[int, str] = {
         1 : "Quacktastic! You clearly know your stuff.",
         2 : "Looks like you've got all your ducks in a row B)",
@@ -111,7 +110,6 @@ def main() -> None:
         7 : "Waddle we do without your smarts? Great job!",
         8 : "Fan-quacking-tastic, you did it again!"
     }
-    
 
     incorrect_duck_puns: Dict[int, str] = {
         1 : "Better duck next time :(",
@@ -123,14 +121,13 @@ def main() -> None:
         7 : "Oops, this answer didn’t fit the bill. :-/"
     }
 
-
-    q_num = 1
-    _continue = False
+    q_num: int = 1
+    _continue: bool = False
     while _continue == False:
         desire = input("Are you ready to start? ")
         if desire.lower() == "yes":
             _continue = True
-    _continue= False
+    _continue = False
     clearscreen()
     resetscreen()
     for q in q_function_list:
@@ -171,6 +168,7 @@ def main() -> None:
 
 
 def select_answer() -> None:
+    """Displays when a user chooses the correct answer."""
     tracer(0, 0)
     heart_duck(-100,100,3)
     correct.hideturtle()
@@ -182,6 +180,7 @@ def select_answer() -> None:
 
 
 def select_incorrect() -> None:
+    """Displays when a user chooses an incorrect answer."""
     tracer(0, 0)
     sad_duck(-100, 100, 3)
     incorrect.hideturtle()
@@ -300,6 +299,7 @@ def q4() -> None:
     t4.penup()
     rainbow_flag()
 
+
 def q5() -> None:
     """Who coined -> intersectionality."""
     bgcolor("mistyrose")
@@ -389,6 +389,7 @@ def q7() -> None:
     t7.penup()
     nb_flag(200,-120)
 
+
 def q8() -> None:
     """Which tech groups -> elders."""
     bgcolor("mistyrose")
@@ -443,6 +444,7 @@ def q9() -> None:
     t9.write("b - Attraction Towards Other Genders   c - Both", move=False, align="center", font=("Century Gothic", 15, "bold"))
     t9.penup()
     bi_flag(-200, 170)
+
 
 def q10() -> None:
     """What cities -> LGBTQ+ friendly."""
@@ -775,6 +777,7 @@ def q20() -> None:
 
 
 def neutral_duck_sprite(x: int, y: int, scalar: float) -> None:
+    """Base duck sprite."""
     n_duck.hideturtle()
     n_duck.penup()
     n_duck.setposition(x, y)
@@ -875,6 +878,7 @@ def neutral_duck_sprite(x: int, y: int, scalar: float) -> None:
 
 
 def sad_duck(x: int, y: int, scalar: float) -> None:
+    """Sad duck sprite."""
     neutral_duck_sprite(x, y, scalar)
     tear.penup()
     tear.setposition(x + (8 * scalar), y - (32 * scalar))
@@ -895,6 +899,7 @@ def sad_duck(x: int, y: int, scalar: float) -> None:
 
 
 def heart_duck(x: int, y: int, scalar: float) -> None:
+    """Happy duck sprite."""
     neutral_duck_sprite(x, y, scalar)
     scale = scalar / 2
     heart.hideturtle()
@@ -951,8 +956,8 @@ def heart_duck(x: int, y: int, scalar: float) -> None:
     heart.right(180)
 
 
-
 def start_screen() -> None:
+    """The start screen of the game."""
     start.hideturtle()
     start.penup()
     sbox.hideturtle()
@@ -1024,6 +1029,7 @@ def start_screen() -> None:
     
 
 def end_screen() -> None:
+    """The end screen of the game."""
     tracer(0, 0)
     bgcolor("mistyrose")
     ebox.hideturtle()
@@ -1097,11 +1103,11 @@ def end_screen() -> None:
     #this part is to keep it up and also quit the program
     game_end = input("Welcome to the end of the game! Enter 'q' to end the program ")
     if game_end.lower() == "q":
-        quit()
-    
+        quit()    
 
     
 def nb_flag(x: int, y: int) -> None:
+    """The nonbinary flag."""
     nb.hideturtle()
     nb.setposition(x, y)
     nb.pencolor("yellow")
@@ -1163,7 +1169,9 @@ def nb_flag(x: int, y: int) -> None:
     nb.end_fill()
     nb.penup()
 
+
 def bi_flag(x: int, y: int) -> None:
+    """The bi flag."""
     bi.penup()
     bi.setposition(x, y)
     bi.hideturtle()
@@ -1211,7 +1219,9 @@ def bi_flag(x: int, y: int) -> None:
     bi.end_fill()
     bi.penup()
 
+
 def trans_flag() -> None:
+    """The trans flag."""
     trans.setposition(-200,130)
     trans.hideturtle()
     trans.pencolor("deepskyblue")
@@ -1288,7 +1298,9 @@ def trans_flag() -> None:
     trans.end_fill()
     trans.penup()
 
+
 def lesbian_flag() -> None:
+    """The lesbian flag."""
     lesbian.setposition(-200,130)
     lesbian.hideturtle()
     lesbian.pencolor("firebrick")
@@ -1365,7 +1377,9 @@ def lesbian_flag() -> None:
     lesbian.end_fill()
     lesbian.penup()
 
+
 def rainbow_flag() -> None:
+    """The traditional pride flag."""
     rainbow.setposition(-200,130)
     rainbow.hideturtle()
     rainbow.pencolor("red")
@@ -1457,6 +1471,7 @@ def rainbow_flag() -> None:
     rainbow.forward(400)
     rainbow.end_fill()
     rainbow.penup()
+
 
 if __name__ == "__main__":
     main()
