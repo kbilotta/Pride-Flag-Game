@@ -40,15 +40,17 @@ bi: Turtle = Turtle()
 nb: Turtle = Turtle()
 trans: Turtle = Turtle()
 test: Turtle = Turtle()
+end: Turtle = Turtle()
+ebox: Turtle = Turtle()
+
 
 def main() -> None:
     """This bad boy can fit a whole lot of code B) (entrypoint to program)"""
     score = 0
     tracer(0,0)
     bgcolor("mistyrose")
-    #'''
     start_screen()
-    q_function_list = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14]
+    q_function_list = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20]
     #put all question functions in this list so that I can randomly access them
     answer_key = {
         1 : "a",
@@ -80,7 +82,7 @@ def main() -> None:
         desire = input("Are you ready to start? ")
         if desire == 'yes' or desire == "Yes":
             _continue = True
-    _continue = False
+    _continue= False
     clearscreen()
     resetscreen()
     for q in q_function_list:
@@ -100,13 +102,17 @@ def main() -> None:
             desire = input("Do you want to continue? ")
             if desire == 'yes' or desire == 'Yes':
                 _continue = True
+            elif desire == 'no' or desire == 'No':
+                    clearscreen()
+                    print(f"Your score is: {score}")
+                    end_screen()
             else:
                 _continue = False
         _continue = False
         clearscreen()
         resetscreen()
         print("Your score is:", score)
-        #'''
+    end_screen()
     done()
 
 
@@ -157,6 +163,8 @@ def q1() -> None:
     t1.write("c - Pansexual", move=False, align="left", font=("Century Gothic", 17, "bold"))
     t1.speed(0)
     trans_flag()
+    t1.penup()
+    t1.setposition(250, 250)
 
     
 def q2() -> None:
@@ -189,7 +197,6 @@ def q2() -> None:
 
 def q3() -> None:
     """What percentage -> disability."""
-    #tracer(0, 0)
     bgcolor("mistyrose")
     t3.hideturtle()
     t3.penup()
@@ -216,7 +223,6 @@ def q3() -> None:
     turt.shape("hack/Q_3.gif")
     turt.setposition(30, 0)
     turt.penup()
-    t3.setposition(-250, 150)
     
 
 def q4() -> None:
@@ -241,7 +247,6 @@ def q4() -> None:
 
 def q5() -> None:
     """Who coined -> intersectionality."""
-    #tracer(0, 0)
     bgcolor("mistyrose")
     t5.hideturtle()
     t5.penup()
@@ -254,11 +259,11 @@ def q5() -> None:
     t5.pendown()
     t5.write("of Intersectionality?", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t5.penup()
-    t5.setposition(0, -170)
+    t5.setposition(0, -180)
     t5.pendown()
     t5.write("a - Harry Styles    b - Marsha P. Johnson", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t5.penup()
-    t5.setposition(0, -210)
+    t5.setposition(0, -220)
     t5.pendown()
     t5.write("c - Kimberle Williams Crenshaw", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t5.penup()
@@ -266,32 +271,30 @@ def q5() -> None:
     t5.setposition(0,0)
     t5.pendown()
     screen = turtle.Screen()
-    screen.addshape("hack/Q 5.gif")
-    t5.shape("hack/Q 5.gif")
+    screen.addshape("hack/Q_5.gif")
+    t5.shape("hack/Q_5.gif")
     t5.penup()
-    t5.setposition(-250, 150)
 
 
 def q6() -> None:
     """What two African countries -> priests."""
-    #tracer(0, 0)
     bgcolor("mistyrose")
     t6.hideturtle()
     t6.penup()
-    t6.setposition(0, 180)
+    t6.setposition(0, 210)
     t6.pendown()
     t6.pencolor("lightcoral")
     t6.write("Which two of these African countries conduct", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t6.penup()
-    t6.setposition(0, 150)
+    t6.setposition(0, 180)
     t6.pendown()
     t6.write("spiritual ceremonies with Trans priests?", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t6.penup()
-    t6.setposition(0, -170)
+    t6.setposition(0, -210)
     t6.pendown()
     t6.write("a - Nigeria & Ghana    b - Tanzania & Ethiopia", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t6.penup()
-    t6.setposition(0, -210)
+    t6.setposition(0, -240)
     t6.pendown()
     t6.write("c - Democratic Republic of Congo & Uganda", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t6.speed(0)
@@ -301,10 +304,10 @@ def q6() -> None:
     t6.setposition(0,0)
     t6.pendown()
     screen = turtle.Screen()
-    screen.addshape("hack/Q 6.gif")
-    t6.shape("hack/Q 6.gif")
+    screen.addshape("hack/Q_6.gif")
+    t6.shape("hack/Q_6.gif")
     t6.penup()
-    t6.setposition(-250, 150)
+
 
 def q7() -> None:
     """What does purple -> nonbinary flag."""
@@ -333,7 +336,6 @@ def q7() -> None:
 
 def q8() -> None:
     """Which tech groups -> elders."""
-    #tracer(0, 0)
     bgcolor("mistyrose")
     t8.hideturtle()
     t8.penup()
@@ -357,14 +359,13 @@ def q8() -> None:
     t8.pendown()
     t8.write("a - Lesbians Who Tech    b - Sage    c - Out in Tech", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t8.penup()
-    t.showturtle()
-    t5.setposition(0,0)
-    t5.pendown()
+    t8.showturtle()
+    t8.setposition(0,-15)
+    t8.pendown()
     screen = turtle.Screen()
-    screen.addshape("hack/Q 5.gif")
-    t5.shape("hack/Q 5.gif")
-    t5.penup()
-    t5.setposition(-250, 150)
+    screen.addshape("hack/Q_8.gif")
+    t8.shape("hack/Q_8.gif")
+    t8.penup()
     
 
 def q9() -> None:
@@ -373,7 +374,7 @@ def q9() -> None:
     bgcolor("mistyrose")
     t9.hideturtle()
     t9.penup()
-    t9.setposition(0, 180)
+    t9.setposition(0, 190)
     t9.pendown()
     t9.pencolor("lightcoral")
     t9.write("What does the magenta stripe of the bi flag represent?", move=False, align="center", font=("Century Gothic", 16, "bold"))
@@ -386,10 +387,10 @@ def q9() -> None:
     t9.pendown()
     t9.write("b - Attraction Towards Other Genders   c - Both", move=False, align="center", font=("Century Gothic", 15, "bold"))
     t9.penup()
+    bi_flag(-200, 170)
 
 def q10() -> None:
     """What cities -> LGBTQ+ friendly."""
-    tracer(0, 0)
     bgcolor("mistyrose")
     t10.hideturtle()
     t10.penup()
@@ -423,8 +424,12 @@ def q10() -> None:
     t10.write("c - Vancouver, BC, Canada; Durban, South Africa; London, United Kingdom", move=False, align="center", font=("Century Gothic", 12, "bold"))
     t10.penup()
     t10.showturtle()
-    t10.shape("Q 10.gif")
-    t10.setposition(-250, 150)
+    t10.setposition(0,-20)
+    t10.pendown()
+    screen = turtle.Screen()
+    screen.addshape("hack/Q_10.gif")
+    t10.shape("hack/Q_10.gif")
+    t10.penup()
 
 
 def q11() -> None:
@@ -443,16 +448,16 @@ def q11() -> None:
     t11.penup()
     t11.setposition(0, -170)
     t11.pendown()
-    t11.write("a - Community    b - Nonbinary And Genderqueer Lesbians", move=False, align="center", font=("Century Gothic", 17, "bold"))
+    t11.write("a - Community    b - Nonbinary And Genderqueer Lesbians", move=False, align="center", font=("Century Gothic", 14, "bold"))
     t11.penup()
     t11.setposition(0, -210)
     t11.pendown()
-    t11.write("c - Connection To Womanhood", move=False, align="center", font=("Century Gothic", 17, "bold"))
+    t11.write("c - Connection To Womanhood", move=False, align="center", font=("Century Gothic", 14, "bold"))
     t11.penup()
     
+
 def q12() -> None:
     """Which celebrities -> identify queer."""
-    tracer(0, 0)
     bgcolor("mistyrose")
     t12.hideturtle()
     t12.penup()
@@ -468,11 +473,18 @@ def q12() -> None:
     t12.setposition(0, -200)
     t12.pendown()
     t12.write("a - Ariana Grande    b - Lily Tomlin    c - Willow Smith", move=False, align="center", font=("Century Gothic", 17, "bold"))
-    t12.penup()    
+    t12.penup()   
+    t12.showturtle()
+    t12.setposition(0,0)
+    t12.pendown()
+    screen = turtle.Screen()
+    screen.addshape("hack/Q_12.gif")
+    t12.shape("hack/Q_12.gif")
+    t12.penup()
+
 
 def q13() -> None:
     """How many countries -> same-sex marriage."""
-    tracer(0, 0)
     bgcolor("mistyrose")
     t13.hideturtle()
     t13.penup()
@@ -489,36 +501,48 @@ def q13() -> None:
     t13.pendown()
     t13.write("a - 76     b - 31     c - 52", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t13.penup()
+    t13.showturtle()
+    t13.setposition(0,0)
+    t13.pendown()
+    screen = turtle.Screen()
+    screen.addshape("hack/Q_13.gif")
+    t13.shape("hack/Q_13.gif")
+    t13.penup()
 
 
 def q14() -> None:
     """Which LGBTQ+ show -> remake."""
-    tracer(0, 0)
     bgcolor("mistyrose")
     t14.hideturtle()
     t14.penup()
-    t14.setposition(0, 180)
+    t14.setposition(0, 200)
     t14.pendown()
     t14.pencolor("lightcoral")
     t14.write("Which one of these LGBTQ+ TV shows is a remake?", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t14.penup()
-    t14.setposition(0, 150)
+    t14.setposition(0, 170)
     t14.pendown()
     t14.write("Hint: it may not be the one you think!", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t14.penup()
-    t14.setposition(0, -170)
+    t14.setposition(0, -190)
     t14.pendown()
     t14.write("a - Ru Paul's Drag Race", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t14.penup()
-    t14.setposition(0, -210)
+    t14.setposition(0, -220)
     t14.pendown()
     t14.write("b - Orange Is The New Black     c - Queer Eye", move=False, align="center", font=("Century Gothic", 17, "bold"))
+    t14.penup()
+    t14.showturtle()
+    t14.setposition(0,0)
+    t14.pendown()
+    screen = turtle.Screen()
+    screen.addshape("hack/Q_14.gif")
+    t14.shape("hack/Q_14.gif")
     t14.penup()
 
 
 def q15() -> None:
     """Which dating app -> for LGBTQ+."""
-    tracer(0, 0)
     bgcolor("mistyrose")
     t15.hideturtle()
     t15.penup()
@@ -535,11 +559,17 @@ def q15() -> None:
     t15.pendown()
     t15.write("a - OkCupid     b - HER     c - Grindr", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t15.penup()
+    t15.showturtle()
+    t15.setposition(0,0)
+    t15.pendown()
+    screen = turtle.Screen()
+    screen.addshape("hack/Q_15.gif")
+    t15.shape("hack/Q_15.gif")
+    t15.penup()
         
 
 def q16() -> None:
     """Who is author -> Marvel writer."""
-    tracer(0, 0)
     bgcolor("mistyrose")
     t16.hideturtle()
     t16.penup()
@@ -547,6 +577,9 @@ def q16() -> None:
     t16.pendown()
     t16.pencolor("lightcoral")
     t16.write("Who is the author of ‘Nice Man’,", move=False, align="center", font=("Century Gothic", 17, "bold"))
+    t16.penup()
+    t16.setposition(0, 150)
+    t16.pendown()
     t16.write("and the first Female Lead Marvel Writer?", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t16.penup()
     t16.setposition(0, -170)
@@ -557,18 +590,27 @@ def q16() -> None:
     t16.pendown()
     t16.write("c - Raquel Salas Rivera", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t16.penup()
+    t16.showturtle()
+    t16.setposition(0,0)
+    t16.pendown()
+    screen = turtle.Screen()
+    screen.addshape("hack/Q_16.gif")
+    t16.shape("hack/Q_16.gif")
+    t16.penup()
 
 
 def q17() -> None:
     """Who was first -> gay congress."""
-    tracer(0, 0)
     bgcolor("mistyrose")
     t17.hideturtle()
     t17.penup()
-    t17.setposition(-235, 180)
+    t17.setposition(0, 180)
     t17.pendown()
     t17.pencolor("lightcoral")
     t17.write("Who was the first openly Gay Man", move=False, align="center", font=("Century Gothic", 17, "bold"))
+    t17.penup()
+    t17.setposition(0, 150)
+    t17.pendown()
     t17.write("to be elected to US Congress?", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t17.penup()
     t17.setposition(0, -170)
@@ -579,34 +621,49 @@ def q17() -> None:
     t17.pendown()
     t17.write("c - Brendan Woodar", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t17.penup()
+    t17.showturtle()
+    t17.setposition(0,0)
+    t17.pendown()
+    screen = turtle.Screen()
+    screen.addshape("hack/Q_17.gif")
+    t17.shape("hack/Q_17.gif")
+    t17.penup()
         
 
 def q18() -> None:
     """Who is nonbinary -> Muslim politician."""
-    tracer(0, 0)
     bgcolor("mistyrose")
     t18.hideturtle()
     t18.penup()
-    t18.setposition(-235, 180)
+    t18.setposition(0, 200)
     t18.pendown()
     t18.pencolor("lightcoral")
-    t18.write("Who was the non-binary and Muslim politician that emerged as being the first person in the US State House to hold both of these identities?", move=False, align="left", font=("Century Gothic", 17, "bold"))
+    t18.write("Who was the non-binary and Muslim politician", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t18.penup()
-    t18.left(90)
-    t18.forward(400)
+    t18.setposition(0, 170)
     t18.pendown()
-    t18.write("a - Scott Tipton - Colorado", move=False, align="left", font=("Century Gothic", 17, "bold"))
+    t18.write("that emerged as being the first person in", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t18.penup()
-    t18.left(90)
-    t18.forward(160)
+    t18.setposition(0, 140)
     t18.pendown()
-    t18.write("b - Mauree Turner - Oklahoma", move=False, align="left", font=("Century Gothic", 17, "bold"))
+    t18.write("the US State House to hold both of these identities?", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t18.penup()
-    t18.forward(175)
+    t18.setposition(0, -190)
     t18.pendown()
-    t18.write("c - Lauren Underwood - Illinois", move=False, align="left", font=("Century Gothic", 17, "bold"))
-    t18.speed(0)
-    listen()        
+    t18.write("a - Scott Tipton - Colorado    b - Mauree Turner - Oklahoma", move=False, align="center", font=("Century Gothic", 17, "bold"))
+    t18.penup()
+    t18.setposition(0, -230)
+    t18.pendown()
+    t18.write("c - Lauren Underwood - Illinois", move=False, align="center", font=("Century Gothic", 17, "bold"))
+    t18.penup()
+    t18.showturtle()
+    t18.setposition(0,-10)
+    t18.pendown()
+    screen = turtle.Screen()
+    screen.addshape("hack/Q_18.gif")
+    t18.shape("hack/Q_18.gif")
+    t18.penup()
+        
     
 def q19() -> None:
     """What does yellow -> nonbinary flag."""
@@ -614,53 +671,51 @@ def q19() -> None:
     bgcolor("mistyrose")
     t19.hideturtle()
     t19.penup()
-    t19.setposition(-235, 180)
+    t19.setposition(0, 180)
     t19.pendown()
     t19.pencolor("lightcoral")
-    t19.write("What does yellow represent in the nonbinary flag?", move=False, align="left", font=("Century Gothic", 17, "bold"))
+    t19.write("What does yellow represent in the nonbinary flag?", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t19.penup()
-    t19.left(90)
-    t19.forward(400)
+    t19.setposition(0, -170)
     t19.pendown()
-    t19.write("a - Gender Neutrality", move=False, align="left", font=("Century Gothic", 17, "bold"))
+    t19.write("a - Gender Neutrality    b - Identifying outside the gender binary", move=False, align="center", font=("Century Gothic", 14, "bold"))
     t19.penup()
-    t19.left(90)
-    t19.forward(160)
+    t19.setposition(0, -210)
     t19.pendown()
-    t19.write("b - Identifying outside the gender binary", move=False, align="left", font=("Century Gothic", 17, "bold"))
+    t19.write("c - Lack of gender", move=False, align="center", font=("Century Gothic", 14, "bold"))
     t19.penup()
-    t19.forward(175)
-    t19.pendown()
-    t19.write("c - Lack of gender", move=False, align="left", font=("Century Gothic", 17, "bold"))
-    t19.speed(0)
-    listen()
+    nb_flag(-200,150)
+    
 
 def q20() -> None:
     """What year Mexican activist -> GLF."""
-    tracer(0, 0)
     bgcolor("mistyrose")
     t20.hideturtle()
     t20.penup()
-    t20.setposition(-235, 180)
+    t20.setposition(0, 200)
     t20.pendown()
     t20.pencolor("lightcoral")
-    t20.write("What year did Mexican LGBTQ+ activist, Nancy Cardenas, become the first person to openly declare homosexuality and start Mexico’s Gay Liberation Front (GLF)?", move=False, align="left", font=("Century Gothic", 17, "bold"))
+    t20.write("What year did Mexican LGBTQ+ activist,", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t20.penup()
-    t20.left(90)
-    t20.forward(400)
+    t20.setposition(0, 170)
     t20.pendown()
-    t20.write("a - 1992", move=False, align="left", font=("Century Gothic", 17, "bold"))
+    t20.write("Nancy Cardenas, become the first person", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t20.penup()
-    t20.left(90)
-    t20.forward(160)
+    t20.setposition(0, 140)
     t20.pendown()
-    t20.write("b - 1989", move=False, align="left", font=("Century Gothic", 17, "bold"))
+    t20.write("to openly declare homosexuality and start Mexico’s Gay Liberation Front (GLF)?", move=False, align="center", font=("Century Gothic", 17, "bold"))
     t20.penup()
-    t20.forward(175)
+    t20.setposition(0, -200)
     t20.pendown()
-    t20.write("c - 1973", move=False, align="left", font=("Century Gothic", 17, "bold"))
-    t20.speed(0)
-    listen()     
+    t20.write("a - 1992    b - 1989    c - 1973", move=False, align="center", font=("Century Gothic", 17, "bold"))
+    t20.penup() 
+    t20.showturtle()
+    t20.setposition(0,-20)
+    t20.pendown()
+    screen = turtle.Screen()
+    screen.addshape("hack/Q_20.gif")
+    t20.shape("hack/Q_20.gif")
+    t20.penup()   
 
 
 def neutral_duck_sprite(x: int, y: int, scalar: float) -> None:
@@ -779,7 +834,8 @@ def sad_duck(x: int, y: int, scalar: float) -> None:
     tear.forward(16 * scalar)
     tear.end_fill()
     tear.penup()
-    tear.setposition(x + (8 * scalar), y - (32 * scalar))
+    #tear.setposition(x + (8 * scalar), y - (32 * scalar))
+    tear.right(270)
 
 
 def heart_duck(x: int, y: int, scalar: float) -> None:
@@ -836,6 +892,7 @@ def heart_duck(x: int, y: int, scalar: float) -> None:
     heart.forward(8 * scale)
     heart.end_fill()
     heart.penup()
+    heart.right(180)
 
 
 
@@ -909,6 +966,86 @@ def start_screen() -> None:
     neutral_duck_sprite(150,-140, 1)
     neutral_duck_sprite(250,-140, 1)
     
+
+def end_screen() -> None:
+    tracer(0, 0)
+    bgcolor("mistyrose")
+    ebox.hideturtle()
+    ebox.penup()
+    ebox.setposition(-350, 240)
+    ebox.pencolor("salmon")
+    ebox.fillcolor("lightsalmon")
+    ebox.begin_fill()
+    ebox.pendown()
+    ebox.forward(700)
+    ebox.right(90)
+    ebox.forward(100)
+    ebox.right(90)
+    ebox.forward(700)
+    ebox.end_fill()
+    ebox.penup()
+    ebox.setposition(-350, 120)
+    ebox.left(180)
+    ebox.pencolor("thistle")
+    ebox.fillcolor("thistle")
+    ebox.begin_fill()
+    ebox.pendown()
+    ebox.forward(700)
+    ebox.right(90)
+    ebox.forward(200)
+    ebox.right(90)
+    ebox.forward(700)
+    ebox.right(90)
+    ebox.forward(200)
+    ebox.end_fill()
+    ebox.penup()
+    ebox.setposition(-350, -120)
+    ebox.right(90)
+    ebox.pencolor("aquamarine")
+    ebox.fillcolor("aquamarine")
+    ebox.begin_fill()
+    ebox.pendown()
+    ebox.forward(700)
+    ebox.right(90)
+    ebox.forward(100)
+    ebox.right(90)
+    ebox.forward(700)
+    ebox.end_fill()
+    ebox.penup()
+    end.hideturtle()
+    end.penup()
+    end.pencolor("maroon")
+    end.setposition(-230, 160)
+    end.pendown()
+    end.write(".*⋅LGBTQ+ Trivia!⋅*.", move=False, align="left", font=("Goudy Old Style", 40, "bold"))
+    end.penup()
+    end.setposition(0, 50)
+    end.pendown()
+    end.write("Thanks for playing!", move=False, align="center", font=("Century Gothic", 30, "bold"))
+    end.penup()
+    end.setposition(0, 0)
+    end.pendown()
+    end.write("We hope you learned more about", move=False, align="center", font=("Century Gothic", 15, "bold"))
+    end.penup()
+    end.setposition(0, -30)
+    end.pendown()
+    end.write("LGBTQ+ history and trivia!", move=False, align="center", font=("Century Gothic", 15, "bold"))
+    end.penup()
+    neutral_duck_sprite(-350,-140, 1)
+    neutral_duck_sprite(-250,-140, 1)
+    neutral_duck_sprite(-150,-140, 1)
+    neutral_duck_sprite(-50,-140, 1)
+    neutral_duck_sprite(50,-140, 1)
+    neutral_duck_sprite(150,-140, 1)
+    neutral_duck_sprite(250,-140, 1)
+    #this part is to keep it up and also quit the program
+    #think this should work, so that end screen doesn't disappear but 
+    #it's also clear what happened if the person entered no
+    game_end = input("Welcome to the end of the game! Click q to end the program ")
+    if game_end == "q":
+        quit()
+    
+
     
 def nb_flag(x: int, y: int) -> None:
     nb.hideturtle()
@@ -972,49 +1109,51 @@ def nb_flag(x: int, y: int) -> None:
     nb.end_fill()
     nb.penup()
 
-def bi_flag() -> None:
+def bi_flag(x: int, y: int) -> None:
+    bi.penup()
+    bi.setposition(x, y)
     bi.hideturtle()
     bi.pencolor("deeppink")
     bi.fillcolor("deeppink")
     bi.begin_fill()
     bi.pendown()
-    bi.forward(200)
+    bi.forward(400)
     bi.right(90)
-    bi.forward(50)
+    bi.forward(100)
     bi.right(90)
-    bi.forward(200)
+    bi.forward(400)
     bi.right(90)
-    bi.forward(50)
+    bi.forward(100)
     bi.end_fill()
     bi.penup()
     bi.right(180)
-    bi.forward(50)
+    bi.forward(100)
     bi.pencolor("mediumorchid")
     bi.fillcolor("mediumorchid")
     bi.begin_fill()
     bi.pendown()
-    bi.forward(50)
+    bi.forward(100)
     bi.left(90)
-    bi.forward(200)
+    bi.forward(400)
     bi.left(90)
-    bi.forward(50)
+    bi.forward(100)
     bi.left(90)
-    bi.forward(200)
+    bi.forward(400)
     bi.end_fill()
     bi.penup()
     bi.left(90)
-    bi.forward(50)
+    bi.forward(100)
     bi.pencolor("mediumblue")
     bi.fillcolor("mediumblue")
     bi.begin_fill()
     bi.pendown()
-    bi.forward(50)
+    bi.forward(100)
     bi.left(90)
-    bi.forward(200)
+    bi.forward(400)
     bi.left(90)
-    bi.forward(50)
+    bi.forward(100)
     bi.left(90)
-    bi.forward(200)
+    bi.forward(400)
     bi.end_fill()
     bi.penup()
 
